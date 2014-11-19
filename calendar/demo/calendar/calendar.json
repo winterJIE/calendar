@@ -1,0 +1,42 @@
+{
+    "property": [
+        ["date", "Date", "该日期所在月份", "当天"],
+        ["target", "PandaDom", "目标节点", "null"],
+        ["selected", "Date", "当前选中日期", "当天"],
+        ["startDay", "Date", "日历显示星期X为其实日期", "0"],
+        ["pages", "number", "日历页数", "1"],
+        ["closable","boolean", "在弹出情况下点选之后是否关闭",  "false"],
+        ["rangeSelect", "Boolean", "是否支持时间段选择", "false"],
+        ["range", "object{}", "默认显示选择的时间范围", "{start:s,end:n}"],
+        ["minDate", "Date", "日历可选择的最小日期", "null"],
+        ["maxDate", "Date", "日历可选择的最大日期", "null"],
+        ["navigator", "Boolean", "是否可以通过点击导航输入日期", "false"],
+        ["popup", "Boolean", "日历是否弹出", "false"],
+        ["showTime", "Boolean", "是否显示时间的选择", "false"],
+        ["triggerType", "array", "弹出状态下触发日历事件", "false"],
+        ["disabled", "array", "禁止点击的日期", "null"],
+        ["align", "object", "对齐方式", "{}"],
+        ["rangeLinkage", "Boolean", "日历是否联动", "true"],
+        ["pages", "number", "日历页数", "1"]
+    ],
+    "method": [
+        {
+            "name":"toggle",
+            "param":"void",
+            "return":"void",
+            "detail":"交替显示隐藏"
+        },
+        {
+            "name":"show",
+            "param":"void",
+            "return":"void",
+            "detail":"显示"
+        },
+        {
+            "name":"hide",
+            "param":"void",
+            "return":"void",
+            "detail":"隐藏"
+        }
+    ]
+}

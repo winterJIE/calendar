@@ -1,0 +1,94 @@
+﻿/**
+ * mixins
+ */
+
+// clearfix
+.clearfix() {
+    *zoom: 1;
+    &:before,
+    &:after {
+        display: table;
+        content: "";
+    }
+    &:after {
+        clear: both;
+    }
+}
+
+// inline-block
+.inline-block() {
+    display: inline-block;
+    *display: inline;
+    *zoom: 1;
+}
+
+// text overflow（前提为块级元素）
+.text-overflow() {
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+}
+
+// IE7下inline-block元素没有左右边距问题
+.ie7-restore-left-whitespace() {
+    *margin-left: .3em;
+
+    &:first-child {
+        *margin-left: 0;
+    }
+}
+.ie7-restore-right-whitespace() {
+    *margin-right: .3em;
+
+    &:last-child {
+        *margin-left: 0;
+    }
+}
+
+// CSS3
+// border-radius
+.border-radius(@radius) {
+    -webkit-border-radius: @radius;
+    -moz-border-radius: @radius;
+    border-radius: @radius;
+}
+
+// background
+// 按钮的渐变
+.gradientBar(@primaryColor, @secondaryColor) {
+    #gradient > .vertical(@primaryColor, @secondaryColor);
+    border-color: @secondaryColor @secondaryColor darken(@secondaryColor, 10%);
+    // border-color: rgba(0,0,0,.1) rgba(0,0,0,.1) fadein(rgba(0,0,0,.1), 15%);
+}
+
+#gradient {
+    // 竖直渐变
+    .vertical(@startColor, @endColor) {
+        background-color: mix(@startColor, @endColor, 60%);
+        // FF 3.6+
+        background-image: -moz-linear-gradient(top, @startColor 5%, @endColor 50%);
+        // IE10
+        background-image: -ms-linear-gradient(top, @startColor 5%, @endColor 50%);
+        // Safari 4+, Chrome 2+
+        background-image: -webkit-gradient(linear, 0 5%, 0 50%, from(@startColor), to(@endColor));
+        // Safari 5.1+, Chrome 10+
+        background-image: -webkit-linear-gradient(top, @startColor 5%, @endColor 50%);
+        // Opera 11.10
+        background-image: -o-linear-gradient(top, @startColor 5%, @endColor 50%);
+        // The standard
+        background-image: linear-gradient(top, @startColor 5%, @endColor 50%);
+        // background-repeat: repeat-x;
+        // IE9 and down
+        filter: e(%("progid:DXImageTransform.Microsoft.gradient(startColorstr='%d', endColorstr='%d', GradientType=0)",@startColor,@endColor));
+    }
+}
+
+// 背景图片按钮
+.btnBackgroundImage(@color, @posY) {
+    background-color: @color;
+    background-position: 0 @posY;
+
+    & .btn-inner {
+    background-position: right @posY;
+    }
+}

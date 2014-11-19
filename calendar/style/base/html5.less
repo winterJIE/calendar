@@ -1,0 +1,20 @@
+﻿/**
+ * html5  reset style
+ */
+@import "mixins.less";
+ 
+article, aside, details, figcaption, figure, footer, header, hgroup, main, nav, section, summary {
+ 	display: block;
+}
+
+/*如同img标签*/
+audio, canvas, video {
+ 	.inline-block();
+}
+
+audio:not([controls]) {
+	/*没有controls属性统一不显示，*/
+	display: none;
+	/*防止IOS5下多余的高度*/
+ 	height: 0;
+}

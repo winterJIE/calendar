@@ -1,0 +1,100 @@
+﻿/**
+ * reset style
+ */
+/*内外边距通常让各个浏览器样式的表现位置不同*/
+body, div, dl, dt, dd, ul, ol, li, h1, h2, h3, h4, h5, h6, pre, code, form, fieldset, legend, input, textarea, p, blockquote, th, td, hr, button, article, aside, details, figcaption, figure, footer, header, hgroup, menu, nav, section {
+    margin: 0;
+    padding: 0;
+}
+
+/*去掉各Table  cell 的边距并让其边重合*/
+table {
+    border-collapse: collapse;
+    border-spacing: 0;
+}
+
+/*IE bug fixed: th 不继承 text-align*/
+th {
+    text-align: inherit;
+}
+
+/*对齐是排版最重要的因素, 别让什么都居中*/
+caption, th {
+    text-align: left;
+}
+
+/*去除默认边框*/
+img {
+    border: 0;
+}
+
+/*解决 IE6-7 图片缩放锯齿问题*/
+img {
+    -ms-interpolation-mode: bicubic;
+}
+
+/*ie6 7 8(q) bug 显示为行内表现*/
+iframe {
+    display: block;
+}
+
+/*去掉列表前的标识, li 会继承，大部分网站通常用列表来很多内容，所以应该当去*/
+ul, ol, li {
+    list-style: none;
+}
+
+hr {
+    -moz-box-sizing: content-box;
+    box-sizing: content-box;
+    height: 0;
+}
+
+// form
+button, input, select, textarea {
+    /*表单元素不继承父级 font 的问题*/
+    font-family: inherit;
+    font-size: 100%;
+    vertical-align: middle;
+
+    &:focus {
+        /*去chrome focus默认的高亮边框*/
+        outline: none;
+    }
+}
+
+textarea {
+    /*去IE6/7/8/9中默认的竖直滚动条*/
+    overflow: auto;
+    vertical-align: top;
+}
+
+button, input {
+    /*IE6/7中padding会随文字长度变化*/
+    *overflow: visible;
+    /*firefox 4+ 中 !important*/
+    line-height: normal;
+}
+
+button,
+input[type="button"],
+input[type="reset"],
+input[type="submit"] {
+    // -webkit-appearance: button;
+    cursor: pointer;
+}
+
+/*不可点击按钮*/
+button[disabled],
+input[disabled] {
+    cursor: default;
+}
+
+input[type="checkbox"],
+input[type="radio"] {
+    /*统一设置盒模型 （IE8/9中盒模型是content-box）*/
+    box-sizing: border-box;
+    /*IE8/9中去掉多余的padding*/
+    padding: 0;
+    /*IE6/7中的默认*/
+    *background-color: transparent;
+}
